@@ -1,4 +1,5 @@
-# CSCE 240: Advanced Programming Techniques in C++
+# CSCE 240:
+# Advanced Programming Techniques in C++
 
 Lectures and Homework for CSCE 240: Advanced Programming Techniques in C++
 
