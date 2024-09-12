@@ -33,7 +33,7 @@ void CompareDates(int month1, int day1, int year1, int month2, int day2, int yea
     // Validate the dates
     if (!ValidDate(month1, day1, year1) || !ValidDate(month2, day2, year2)) {
         if (!ValidDate(month1, day1, year1)) {
-        cout << month2 << "/" << day2 << "/" << year2 << " is not a valid date" << endl;
+        cout << month1 << "/" << day1 << "/" << year1 << " is not a valid date" << endl;
         }
         if (!ValidDate(month2, day2, year2)) {
         cout << month2 << "/" << day2 << "/" << year2 << " is not a valid date" << endl;
