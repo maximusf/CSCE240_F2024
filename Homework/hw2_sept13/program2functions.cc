@@ -2,11 +2,13 @@
 // Due: 2024-09-13
 // program2functions.cc
 // program 2 functions
+
 #include <iostream>
 using std::cout;
 using std::endl;
 #include "./program2functions.h"
 
+// Seems correct
 bool LeapYear(int year) {
     // returns true if leap year, false if not
     if (year % 400 == 0)
@@ -19,6 +21,7 @@ bool LeapYear(int year) {
         return false;
 }
 
+// Seems correct
 int LastDayOfMonth(int month, int year) {
     // returns last day of month
     if (month < 1 || month > 12) {
@@ -51,7 +54,7 @@ int LastDayOfMonth(int month, int year) {
 
 }
 
-// check this function below for errors
+// Seems correct
 bool ValidDate(int month, int day, int year) {
     if (year <= 0) {
         return false;
@@ -69,14 +72,58 @@ bool ValidDate(int month, int day, int year) {
     return true;
 }
 
+// Seems correct
 void NextDate(int &month, int &day, int &year) {
+    if (ValidDate(month, day, year)) {
+        // checks if the date is valid then
+        // updates the date variables to the 
+        // next calendar date
+        // for ex: 11/30/2022 -> 12/1/2022
+        if (day == LastDayOfMonth(month, year)) {
+            if (month == 12) {
+                month = 1;
+                day = 1;
+                year++;
+            } else {
+                month++;
+                day = 1;
+            }
+        } else {
+            day++;
+        }
 
+    } else {
+        // invalid date
+        // do nothing
+    }
 }
 
+// Seems correct
 void PreviousDate(int &month, int &day, int &year) {
 
+    if (ValidDate(month, day, year)) {
+        // checks if the date is valid then
+        // updates the date variables to the 
+        // previous calendar date
+        // for ex: 12/1/2022 -> 11/30/2022
+        if (day == 1) {
+            if (month == 1) {
+                month = 12;
+                day = 31;
+                year--;
+            } else {
+                month--;
+                day = LastDayOfMonth(month, year);
+            }
+        } else {
+            day--;
+        }
+    } else {
+        // invalid date
+        // do nothing
+    }
 
-
+}
 
 
 // bool ValidDate(int month, int day, int year) {
