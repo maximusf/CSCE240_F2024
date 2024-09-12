@@ -1,5 +1,8 @@
 flags = -std=c++17 -Wall -I .
 
+style : program2.cc program2functions.cc program2functions.h
+	cpplint program2.cc program2functions.cc program2functions.h
+
 program2functions.o : program2functions.cc program2functions.h
 	g++ $(flags) -c $< -I .
 
