@@ -6,9 +6,8 @@
 #include <iostream>
 using std::cout;
 using std::endl;
-#include "./program2functions.h"
+#include "program2functions.h"
 
-// Seems correct
 bool LeapYear(int year) {
     // returns true if leap year, false if not
     if (year % 400 == 0)
@@ -21,9 +20,8 @@ bool LeapYear(int year) {
         return false;
 }
 
-// Seems correct
 int LastDayOfMonth(int month, int year) {
-    // returns last day of month
+    // checks if month is valid
     if (month < 1 || month > 12) {
         return 0;
     }
@@ -32,6 +30,8 @@ int LastDayOfMonth(int month, int year) {
         if (year <= 0) {
             return 0;
         }
+        // checks if leap year
+        // for February
         if (LeapYear(year)) {
             return 29;
         } else {
@@ -40,11 +40,13 @@ int LastDayOfMonth(int month, int year) {
     }
 
     switch (month) {
+        // months with 31 days
         case 1: case 3:
         case 5: case 7:
         case 8: case 10:
         case 12:
             return 31;
+        // months with 30 days
         case 4: case 6:
         case 9: case 11:
             return 30;
@@ -53,8 +55,8 @@ int LastDayOfMonth(int month, int year) {
     }
 }
 
-// Seems correct
 bool ValidDate(int month, int day, int year) {
+    // returns true if date is valid, false if not
     if (year <= 0) {
         return false;
     }
@@ -68,52 +70,51 @@ bool ValidDate(int month, int day, int year) {
     return true;
 }
 
-// Seems correct
-void NextDate(int &month, int &day, int &year) {
-    if (ValidDate(month, day, year)) {
+void NextDate(int* month, int* day, int* year) {
+    if (ValidDate(*month, *day, *year)) {
         // checks if the date is valid then
         // updates the date variables to the
         // next calendar date
-        // for ex: 11/30/2022 -> 12/1/2022
-        if (day == LastDayOfMonth(month, year)) {
-            if (month == 12) {
-                month = 1;
-                day = 1;
-                year++;
+        // for ex: 12/31/2022 --> 1/1/2023
+        if (*day == LastDayOfMonth(*month, *year)) {
+            if (*month == 12) {
+                *month = 1;
+                *day = 1;
+                (*year)++;
             } else {
-                month++;
-                day = 1;
+                (*month)++;
+                *day = 1;
             }
         } else {
-            day++;
+            (*day)++;
         }
-
-    } else {
+    }
+    else {
         // invalid date
         // do nothing
     }
 }
 
-// Seems correct
-void PreviousDate(int &month, int &day, int &year) {
-    if (ValidDate(month, day, year)) {
+void PreviousDate(int* month, int* day, int* year) {
+    if (ValidDate(*month, *day, *year)) {
         // checks if the date is valid then
         // updates the date variables to the
         // previous calendar date
-        // for ex: 12/1/2022 -> 11/30/2022
-        if (day == 1) {
-            if (month == 1) {
-                month = 12;
-                day = 31;
-                year--;
+        // for ex: 12/1/2022 --> 11/30/2022
+        if (*day == 1) {
+            if (*month == 1) {
+                *month = 12;
+                *day = 31;
+                (*year)--;
             } else {
-                month--;
-                day = LastDayOfMonth(month, year);
+                (*month)--;
+                *day = LastDayOfMonth(*month, *year);
             }
         } else {
-            day--;
+            (*day)--;
         }
-    } else {
+    }
+    else {
         // invalid date
         // do nothing
     }
