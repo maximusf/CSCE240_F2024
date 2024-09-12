@@ -6,7 +6,7 @@
 #include <iostream>
 using std::cout;
 using std::endl;
-#include "program2functions.h"
+#include "./program2functions.h"
 
 bool LeapYear(int year) {
     // returns true if leap year, false if not
@@ -88,8 +88,7 @@ void NextDate(int* month, int* day, int* year) {
         } else {
             (*day)++;
         }
-    }
-    else {
+    } else {
         // invalid date
         // do nothing
     }
@@ -113,8 +112,7 @@ void PreviousDate(int* month, int* day, int* year) {
         } else {
             (*day)--;
         }
-    }
-    else {
+    } else {
         // invalid date
         // do nothing
     }

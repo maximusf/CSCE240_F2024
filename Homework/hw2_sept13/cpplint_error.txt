@@ -1,14 +1,6 @@
 Done processing program2.cc
-program2functions.cc:72:  Is this a non-const reference? If so, make const or use a pointer: int &month  [runtime/references] [2]
-program2functions.cc:72:  Is this a non-const reference? If so, make const or use a pointer: int &day  [runtime/references] [2]
-program2functions.cc:72:  Is this a non-const reference? If so, make const or use a pointer: int &year  [runtime/references] [2]
-program2functions.cc:98:  Is this a non-const reference? If so, make const or use a pointer: int &month  [runtime/references] [2]
-program2functions.cc:98:  Is this a non-const reference? If so, make const or use a pointer: int &day  [runtime/references] [2]
-program2functions.cc:98:  Is this a non-const reference? If so, make const or use a pointer: int &year  [runtime/references] [2]
 program2functions.cc:6:  Homework/hw2_sept13/program2functions.cc should include its header file Homework/hw2_sept13/program2functions.h. Relative paths like . and .. are not allowed.  [build/include] [5]
 Done processing program2functions.cc
-program2functions.h:6:  #ifndef header guard has wrong style, please use: HOMEWORK_HW2_SEPT13_PROGRAM2FUNCTIONS_H_  [build/header_guard] [5]
-program2functions.h:23:  #endif line should be "#endif  // HOMEWORK_HW2_SEPT13_PROGRAM2FUNCTIONS_H_"  [build/header_guard] [5]
 Done processing program2functions.h
-Total errors found: 9
+Total errors found: 1
 make: *** [makefile:4: style] Error 1

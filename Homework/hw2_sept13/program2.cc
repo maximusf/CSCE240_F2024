@@ -7,7 +7,7 @@
 using std::cin;
 using std::cout;
 using std::endl;
-#include "program2functions.h"
+#include "./program2functions.h"
 
 // Helper function to count the total number of days
 // from a reference point (e.g., year 0) to a specific date
