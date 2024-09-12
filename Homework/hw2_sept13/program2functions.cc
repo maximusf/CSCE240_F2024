@@ -70,23 +70,23 @@ bool ValidDate(int month, int day, int year) {
     return true;
 }
 
-void NextDate(int* month, int* day, int* year) {
-    if (ValidDate(*month, *day, *year)) {
+void NextDate(int& month, int& day, int& year) {
+    if (ValidDate(month, day, year)) {
         // checks if the date is valid then
         // updates the date variables to the
         // next calendar date
         // for ex: 12/31/2022 --> 1/1/2023
-        if (*day == LastDayOfMonth(*month, *year)) {
-            if (*month == 12) {
-                *month = 1;
-                *day = 1;
-                (*year)++;
+        if (day == LastDayOfMonth(month, year)) {
+            if (month == 12) {
+                month = 1;
+                day = 1;
+                (year)++;
             } else {
-                (*month)++;
-                *day = 1;
+                (month)++;
+                day = 1;
             }
         } else {
-            (*day)++;
+            (day)++;
         }
     } else {
         // invalid date
@@ -94,23 +94,23 @@ void NextDate(int* month, int* day, int* year) {
     }
 }
 
-void PreviousDate(int* month, int* day, int* year) {
-    if (ValidDate(*month, *day, *year)) {
+void PreviousDate(int& month, int& day, int& year) {
+    if (ValidDate(month, day, year)) {
         // checks if the date is valid then
         // updates the date variables to the
         // previous calendar date
         // for ex: 12/1/2022 --> 11/30/2022
-        if (*day == 1) {
-            if (*month == 1) {
-                *month = 12;
-                *day = 31;
-                (*year)--;
+        if (day == 1) {
+            if (month == 1) {
+                month = 12;
+                day = 31;
+                (year)--;
             } else {
-                (*month)--;
-                *day = LastDayOfMonth(*month, *year);
+                (month)--;
+                day = LastDayOfMonth(month, year);
             }
         } else {
-            (*day)--;
+            (day)--;
         }
     } else {
         // invalid date

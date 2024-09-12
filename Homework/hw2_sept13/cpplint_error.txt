@@ -1,6 +1,4 @@
-Done processing program2.cc
-program2functions.cc:6:  Homework/hw2_sept13/program2functions.cc should include its header file Homework/hw2_sept13/program2functions.h. Relative paths like . and .. are not allowed.  [build/include] [5]
-Done processing program2functions.cc
-Done processing program2functions.h
-Total errors found: 1
-make: *** [makefile:4: style] Error 1
+Ignore these cpplint error messages
+SKIP header file path
+SKIP include full path
+DON'T use reference variables bla bla bla (do not change int& to int*, we haven't learned pointers yet)
