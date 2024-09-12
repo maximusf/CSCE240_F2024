@@ -6,7 +6,7 @@
 #include <iostream>
 using std::cout;
 using std::endl;
-#include "./program2functions.h"
+#include "Homework/hw2_sept13/program2functions.h"
 
 bool LeapYear(int year) {
     // returns true if leap year, false if not
