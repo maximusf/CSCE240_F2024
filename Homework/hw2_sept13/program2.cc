@@ -64,11 +64,9 @@ int main() {
     char slash;
 
     // Read the first date (format: month/day/year)
-    cout << "Enter the first date (MM/DD/YYYY): ";
     cin >> month1 >> slash >> day1 >> slash >> year1;
 
     // Read the second date (format: month/day/year)
-    cout << "Enter the second date (MM/DD/YYYY): ";
     cin >> month2 >> slash >> day2 >> slash >> year2;
 
     // Compare the two dates
