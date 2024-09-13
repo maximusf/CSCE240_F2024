@@ -7,9 +7,6 @@
 #define _PROGRAM2FUNCTIONS_H_
 
 #include <iostream>
-using std::cin;
-using std::cout;
-using std::endl;
 
 bool LeapYear(int);
 
@@ -17,8 +14,8 @@ int LastDayOfMonth(int, int = 0);
 
 bool ValidDate(int, int, int);
 
-void NextDate(int* month, int* day, int* year);
+void NextDate(int& month, int& day, int& year);
 
-void PreviousDate(int* month, int* day, int* year);
+void PreviousDate(int& month, int& day, int& year);
 
 #endif  // _PROGRAM2FUNCTIONS_H_
