@@ -4,8 +4,6 @@
 // program 2 functions
 
 #include <iostream>
-using std::cout;
-using std::endl;
 #include "./program2functions.h"
 
 bool LeapYear(int year) {
