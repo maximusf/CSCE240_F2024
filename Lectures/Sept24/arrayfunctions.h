@@ -20,4 +20,8 @@ float Average( const float n[], int s );
 // or return the index of the value being searched
 int LinearSearch( const float vals[], int size, float search_value );
 
+// quick sort function
+void QuickSort(float vals[], int size);
+
+
 #endif
