@@ -7,6 +7,9 @@ flags = -std=c++17 -Wall -I .
 compile = g++ $(flags) -c
 link = g++ $(flags)
 
+style : program3functions.cc program3functions.h
+	cpplint program3functions.cc program3functions.h
+
 checkincludes : checkincludes.cc program3functions.h program3functions.cc
 	$(link) $< -o $@
 	./$@ program3functions.h
