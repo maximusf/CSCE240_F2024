@@ -7,6 +7,26 @@ using std::endl;
 using std::cin;
 
 int main () {
+    // numbers is like  int * const
+    int numbers[] = { 3, 7, 15, 22};
+    //const int * const p1 = numbers;
+    //int * const p1 = numbers;
+    int * p1 = numbers;
+    p1[3] = 8;  // NOTE: we can use the [] on pointers
+                // anything we can do with arrays, we can do the same 
+                // way with pointers [we can move pointers, we can't move arrays]
+    //++p1;
+    //++(*p1); // this is changing the integer
+
+    for ( int i = 0; i < 4; ++i)
+        cout << numbers[i] << " ";
+    cout << endl;
+
+    return 0;
+}
+
+/*
+int main () {
     // an array is like a constant pointer - holds an address, but the address can't change
     char phrase[] = "How are you doing?";
     cout << phrase << endl;
@@ -29,7 +49,7 @@ int main () {
 
     return 0;
 }
-
+*/
 
 /*
 int main() {
