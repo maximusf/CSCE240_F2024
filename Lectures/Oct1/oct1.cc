@@ -7,6 +7,21 @@ using std::endl;
 using std::cin;
 
 int main () {
+    const char * greetings[4] = { "How are you?", "What is up?", "Yo", "Sup dawg?" };
+    // first element of the array would be 'H' in "How are you?"
+    // second element of the array would be 'W' in "What is up?" and so on
+
+    for ( int i = 0; i < 4; ++i )
+        cout << greetings[i] << endl;
+    for ( int i = 0; i < 40; ++i )
+        cout << greetings[0][i];
+    cout << endl;
+
+    return 0;
+}
+
+/*
+int main () {
     // numbers is like  int * const
     int numbers[] = { 3, 7, 15, 22};
     //const int * const p1 = numbers;
@@ -24,6 +39,7 @@ int main () {
 
     return 0;
 }
+*/
 
 /*
 int main () {
