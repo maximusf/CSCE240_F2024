@@ -6,6 +6,9 @@
 
 #include<string>
 using std::string;
+#include<iostream>
+using std::cout;
+
 
 class Temperature {
     // Google style - all function, data member indented two spaces in block
@@ -16,6 +19,12 @@ class Temperature {
  // If your constructor can be called with exactly one argument, mark it as explicit if ( value == "Celsius" || value == "Fahrenheit" || value == "Kelvin")
  // makes it so that values of that one argument type won't be implicitly cast as an object of our class, calling that constructor
     explicit Temperature(double value = 72, string unit = "Fahrenheit" );
+
+    // Destructor - removes the private data members for the object
+    ~Temperature() { cout << "destructor called for "; Print(); }
+
+
+    //Temperature(double value = 72, string unit = "Fahrenheit" );
     void Print() const; // if a function shouldn't modify the object it's called on, make it a constant member function
 
     // accessors / get functions - returns a copy of the value of a private data member
