@@ -23,8 +23,7 @@ int main() {
             arr[i][j] = 0.0;
         }
     }   
-    FillArray(arr, rows, cols);
-    PrintArray(arr, rows, cols);
+    
     SortByCol(arr, rows, cols);
     PrintArray(arr, rows, cols);
     SortByRow(arr, rows, cols);
