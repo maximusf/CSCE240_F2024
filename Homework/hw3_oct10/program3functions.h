@@ -16,8 +16,8 @@ using std::cin;
 // Function Prototypes
 int CountAboveAv(const double arr[][10], int num_rows); // PASSED TEST
 void SortByCol(double arr[][10], int num_rows, int num_cols, bool ascending); // PASSED TEST
-void SortByRow(double arr[][10], int num_rows, int sort_row, bool ascending);
-int ModeInCol(const double arr[][10], int num_rows, int col, double modes[2]);
+void SortByRow(double arr[][10], int num_rows, int sort_row, bool ascending); // PASSED TEST
+int MedianInCol(const double arr[][10], int num_rows, int col, double modes[2]); 
 void ModeInCol(const double arr[][10], int num_rows, int num_cols);
 
 #endif

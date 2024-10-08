@@ -52,32 +52,28 @@ void SortByCol(double arr[][10], int num_rows, int num_cols, bool ascending) {
     }
 }
 
-// WIP
+// PASSED TEST
 void SortByRow(double arr[][10], int num_rows, int sort_row, bool ascending) {
-    // Bubble sort algorithm to sort rows based on values in the specified sort_row
-    for (int i = 0; i < num_rows - 1; i++) {
-        for (int j = 0; j < num_rows - i - 1; j++) {
+    for (int i = 0; i < 9; i++) {  // Iterate through columns within the row (9 because we compare to the next element)
+        for (int j = i + 1; j < 10; j++) {  // Compare elements within the sort_row
             bool condition;
             if (ascending) {
-                condition = arr[j][sort_row] > arr[j + 1][sort_row]; // Ascending order
+                condition = arr[sort_row][i] > arr[sort_row][j]; // Sort in ascending order
             } else {
-                condition = arr[j][sort_row] < arr[j + 1][sort_row]; // Descending order
+                condition = arr[sort_row][i] < arr[sort_row][j]; // Sort in descending order
             }
-            
-            // If the condition is met, swap the entire rows
+
             if (condition) {
-                for (int k = 0; k < 10; k++) {
-                    double temp = arr[j][k];
-                    arr[j][k] = arr[j + 1][k];
-                    arr[j + 1][k] = temp;
+                // Swap entire columns if the condition is true
+                for (int k = 0; k < num_rows; k++) {  // Swap the elements across all rows for the columns being swapped
+                    double temp = arr[k][i];
+                    arr[k][i] = arr[k][j];
+                    arr[k][j] = temp;
                 }
             }
         }
     }
 }
-
-
-
 
 // WIP
 void MedianInCol(const double arr[][10], int num_rows, int num_cols) {
