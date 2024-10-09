@@ -7,46 +7,57 @@
 const int kNumCols = 10;  // Constant for number of columns
 
 // PASSED TEST
-int CountAboveAv(const double arr[][kNumCols], int num_rows) {
+int CountAboveAv(const double arr[][kNumCols],
+int num_rows) {
     int count = 0;
     double av = 0.0;
 
-    // Calculate the average of all elements in the specified rows
+    // Calculate the average of all
+    // elements in the specified rows
     for (int i = 0; i < num_rows; i++) {
         for (int j = 0; j < kNumCols; j++) {
-            av += arr[i][j];  // iterate through first and second row values
+            av += arr[i][j];
+            // iterate through first
+            //and second row values
         }
     }
 
-    av = av / (num_rows * kNumCols);  // Calculate the average
+    av = av / (num_rows * kNumCols);
+    // Calculate the average
 
-    // Count how many elements are above the average
+    // Count how many elements are
+    //above the average
     for (int i = 0; i < num_rows; i++) {
         for (int j = 0; j < kNumCols; j++) {
-            if (arr[i][j] > av) {  // Compare all elements to average
+            if (arr[i][j] > av) {
+                // Compare all elements to average
                 count++;
             }
         }
     }
 
-    return count;  // Return the number of elements above the average
+    return count;  // Return the number
+    // of elements above the average
 }
 
 // PASSED TEST
-void SortByCol(double arr[][kNumCols], int num_rows,
- int num_cols, bool ascending) {
+void SortByCol(double arr[][kNumCols],
+int num_rows, int num_cols, bool ascending) {
     for (int i = 0; i < num_rows - 1; i++) {
         for (int j = i + 1; j < num_rows; j++) {
             // Compare values in the specified column
             bool condition;
             if (ascending) {
-                condition = arr[i][num_cols] > arr[j][num_cols];  // Ascending
+                condition = arr[i][num_cols]
+                > arr[j][num_cols];  // Ascending
             } else {
-                condition = arr[i][num_cols] < arr[j][num_cols];  // Descending
+                condition = arr[i][num_cols]
+                < arr[j][num_cols];  // Descending
             }
             if (condition) {
                 // Swap entire rows if condition is true
-                for (int k = 0; k < kNumCols; k++) {  // Swap all columns
+                for (int k = 0; k < kNumCols; k++) {  
+                    // Swap all columns
                     double temp = arr[i][k];
                     arr[i][k] = arr[j][k];
                     arr[j][k] = temp;
@@ -59,13 +70,17 @@ void SortByCol(double arr[][kNumCols], int num_rows,
 // PASSED TEST
 void SortByRow(double arr[][kNumCols], int num_rows,
 int sort_row, bool ascending) {
-    for (int i = 0; i < kNumCols - 1; i++) {  // Iterate through columns
-        for (int j = i + 1; j < kNumCols; j++) {  // Compare elements
+    for (int i = 0; i < kNumCols - 1; i++) {
+        // Iterate through columns
+        for (int j = i + 1; j < kNumCols; j++) {
+            // Compare elements
             bool condition;
             if (ascending) {
-                condition = arr[sort_row][i] > arr[sort_row][j];  // Ascending
+                condition = arr[sort_row][i]
+                > arr[sort_row][j];  // Ascending
             } else {
-                condition = arr[sort_row][i] < arr[sort_row][j];  // Descending
+                condition = arr[sort_row][i]
+                < arr[sort_row][j];  // Descending
             }
 
             if (condition) {
