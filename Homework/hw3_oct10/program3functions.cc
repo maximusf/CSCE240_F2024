@@ -111,17 +111,22 @@ double MedianInCol(const double arr[][10], int num_rows, int col) {
 #include<cmath>
 using namespace std;
 
+#include<iostream>
+#include<iomanip>
+#include<cmath>
+using namespace std;
+
 int ModeInCol(double arr[][10], int numRows, int col, double mode[2]) {
-    // Variables to store frequency of each unique value in the column
+    // Arrays to store unique values and their frequencies
     double values[numRows];
-    int frequencies[numRows];
+    int frequencies[numRows] = {0};
     int uniqueCount = 0;
 
-    // Count frequencies of values in the specified column
+    // Iterate over the column to count occurrences of each value
     for (int i = 0; i < numRows; ++i) {
         bool found = false;
         for (int j = 0; j < uniqueCount; ++j) {
-            if (fabs(arr[i][col] - values[j]) < 1e-9) { // Check if value already exists
+            if (fabs(arr[i][col] - values[j]) < 1e-9) { // Close enough for equality
                 frequencies[j]++;
                 found = true;
                 break;
@@ -142,7 +147,7 @@ int ModeInCol(double arr[][10], int numRows, int col, double mode[2]) {
         }
     }
 
-    // Find the mode(s) based on the highest frequency
+    // Find the mode(s) with the highest frequency
     int modeCount = 0;
     for (int i = 0; i < uniqueCount; ++i) {
         if (frequencies[i] == maxFreq) {
@@ -150,11 +155,17 @@ int ModeInCol(double arr[][10], int numRows, int col, double mode[2]) {
                 mode[modeCount] = values[i];
                 modeCount++;
             } else {
-                return 0; // More than two modes, return 0
+                // More than two modes
+                mode[0] = mode[1] = -1;
+                return 0;
             }
         }
     }
 
-    // Return the number of modes found
+    // If there is only one mode, reset the second mode value to the default
+    if (modeCount == 1) {
+        mode[1] = -2;
+    }
+
     return modeCount;
 }
