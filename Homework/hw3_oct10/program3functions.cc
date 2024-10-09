@@ -130,7 +130,9 @@ int numRows, int col, double modes[2]) {
     for (int i = 0; i < numRows; ++i) {
         bool found = false;
         for (int j = 0; j < uniqueCount; ++j) {
-            if (fabs(arr[i][col] - values[j]) < 1e-9) {  // Close enough for equality
+            if (fabs(arr[i][col] -
+            values[j]) < 1e-9) {  
+                // Close enough for equality
                 frequencies[j]++;
                 found = true;
                 break;
