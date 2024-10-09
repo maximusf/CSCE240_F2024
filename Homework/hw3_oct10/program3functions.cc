@@ -1,6 +1,6 @@
 // Copyright 2024 maximusf
-// CSCE240 Programing Assignment 3
-// 10/10/2024
+// CSCE240 Programming Assignment 3
+// Due Oct 10, 2024
 
 #include "program3functions.h"
 // PASSED TEST
@@ -106,15 +106,55 @@ double MedianInCol(const double arr[][10], int num_rows, int col) {
 }
 
 // WIP
-int ModeInCol(const double arr[][10], int num_rows, int col, int modes[2]) {
-    // determine which element appears the most frequently in a column
+#include<iostream>
+#include<iomanip>
+#include<cmath>
+using namespace std;
 
-    //examine the column, col
+int ModeInCol(double arr[][10], int numRows, int col, double mode[2]) {
+    // Variables to store frequency of each unique value in the column
+    double values[numRows];
+    int frequencies[numRows];
+    int uniqueCount = 0;
 
-    // iterate through the column, counting each element
-    // if one element in the column has a greater frequency than the others
-    
+    // Count frequencies of values in the specified column
+    for (int i = 0; i < numRows; ++i) {
+        bool found = false;
+        for (int j = 0; j < uniqueCount; ++j) {
+            if (fabs(arr[i][col] - values[j]) < 1e-9) { // Check if value already exists
+                frequencies[j]++;
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            values[uniqueCount] = arr[i][col];
+            frequencies[uniqueCount] = 1;
+            uniqueCount++;
+        }
+    }
 
+    // Find the highest frequency
+    int maxFreq = 0;
+    for (int i = 0; i < uniqueCount; ++i) {
+        if (frequencies[i] > maxFreq) {
+            maxFreq = frequencies[i];
+        }
+    }
 
+    // Find the mode(s) based on the highest frequency
+    int modeCount = 0;
+    for (int i = 0; i < uniqueCount; ++i) {
+        if (frequencies[i] == maxFreq) {
+            if (modeCount < 2) {
+                mode[modeCount] = values[i];
+                modeCount++;
+            } else {
+                return 0; // More than two modes, return 0
+            }
+        }
+    }
 
-}   
+    // Return the number of modes found
+    return modeCount;
+}

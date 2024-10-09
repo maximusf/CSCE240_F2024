@@ -1,7 +1,5 @@
 // Copyright 2024 maximusf
 // CSCE240 Programming Assignment 3
-// This program contains 10 functions that are used in the program
-// to calculate the median, mode, and count of values in a 2D array
 // Due Oct 10, 2024
 
 #ifndef PROGRAM3FUNCTIONS_H
