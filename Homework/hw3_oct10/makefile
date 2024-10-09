@@ -7,6 +7,9 @@ flags = -std=c++17 -Wall -I .
 compile = g++ $(flags) -c
 link = g++ $(flags)
 
+# runs all tests
+test : testCountAboveAv testSortByCol testSortByRow testMedianInCol testModeInCol
+
 style : program3functions.cc program3functions.h
 	cpplint program3functions.cc program3functions.h
 

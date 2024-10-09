@@ -18,7 +18,7 @@ int num_rows) {
         for (int j = 0; j < kNumCols; j++) {
             av += arr[i][j];
             // iterate through first
-            //and second row values
+            // and second row values
         }
     }
 
@@ -26,7 +26,7 @@ int num_rows) {
     // Calculate the average
 
     // Count how many elements are
-    //above the average
+    // above the average
     for (int i = 0; i < num_rows; i++) {
         for (int j = 0; j < kNumCols; j++) {
             if (arr[i][j] > av) {
@@ -56,7 +56,7 @@ int num_rows, int num_cols, bool ascending) {
             }
             if (condition) {
                 // Swap entire rows if condition is true
-                for (int k = 0; k < kNumCols; k++) {  
+                for (int k = 0; k < kNumCols; k++) {
                     // Swap all columns
                     double temp = arr[i][k];
                     arr[i][k] = arr[j][k];
@@ -135,19 +135,17 @@ using std::endl;
 using std::cin;
 
 int ModeInCol(const double arr[][kNumCols],
-int numRows, int col, double modes[2]) {
+int kNumRows, int col, double modes[2]) {
     // Arrays to store unique values and their frequencies
-    double values[numRows];
-    int frequencies[numRows] = {0};
+    double values[kNumRows];
+    int frequencies[kNumRows] = {0};
     int uniqueCount = 0;
 
     // Iterate over the column to count occurrences of each value
-    for (int i = 0; i < numRows; ++i) {
+    for (int i = 0; i < kNumRows; ++i) {
         bool found = false;
         for (int j = 0; j < uniqueCount; ++j) {
-            if (fabs(arr[i][col] -
-            values[j]) < 1e-9) {  
-                // Close enough for equality
+            if (arr[i][col] == values[j]) {
                 frequencies[j]++;
                 found = true;
                 break;
@@ -177,7 +175,8 @@ int numRows, int col, double modes[2]) {
                 modeCount++;
             } else {
                 // More than two modes
-                modes[0] = modes[1] = -1.0;  // Use -1.0 to indicate more than two modes
+                modes[0] = modes[1] = -1.0;
+                // Use -1.0 to indicate more than two modes
                 return 0;
             }
         }
