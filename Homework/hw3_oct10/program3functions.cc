@@ -75,34 +75,46 @@ void SortByRow(double arr[][10], int num_rows, int sort_row, bool ascending) {
     }
 }
 
-// WIP
-void MedianInCol(const double arr[][10], int num_rows, int num_cols) {
-    for (int i = 0; i < num_cols; i++) {
-        double median = 0.0;
-        if (num_rows % 2 == 0) {
-            median = (arr[num_rows / 2 - 1][i] + arr[num_rows / 2][i]) / 2;
-        } else {
-            median = arr[num_rows / 2][i];
+// PASSED TEST
+double MedianInCol(const double arr[][10], int num_rows, int col) {
+    // Step 1: Extract the column values into a temporary array
+    double column_values[num_rows];
+    for (int i = 0; i < num_rows; ++i) {
+        column_values[i] = arr[i][col];
+    }
+
+    // Step 2: Manually sort the column values using bubble sort
+    for (int i = 0; i < num_rows - 1; ++i) {
+        for (int j = 0; j < num_rows - i - 1; ++j) {
+            if (column_values[j] > column_values[j + 1]) {
+                // Swap adjacent elements if they are in the wrong order
+                double temp = column_values[j];
+                column_values[j] = column_values[j + 1];
+                column_values[j + 1] = temp;
+            }
         }
-        cout << median << endl;
+    }
+
+    // Step 3: Calculate the median
+    if (num_rows % 2 == 1) {
+        // If odd, return the middle value
+        return column_values[num_rows / 2];
+    } else {
+        // If even, return the average of the two middle values
+        return (column_values[num_rows / 2 - 1] + column_values[num_rows / 2]) / 2.0;
     }
 }
 
 // WIP
-void ModeInCol(const double arr[][10], int num_rows, int num_cols) {
-    int mode = 0;
-    int max = 0;
-    for (int i = 0; i < num_cols; i++) {
-        int count = 0;
-        for (int j = 0; j < num_rows; j++) {
-            if (arr[j][i] == arr[mode][i]) {
-                count++;
-            }
-        }
-        if (count > max) {
-            max = count;
-            mode = i;
-        }
-    }
-    cout << arr[mode][mode] << endl;
+int ModeInCol(const double arr[][10], int num_rows, int col, int modes[2]) {
+    // determine which element appears the most frequently in a column
+
+    //examine the column, col
+
+    // iterate through the column, counting each element
+    // if one element in the column has a greater frequency than the others
+    
+
+
+
 }   
