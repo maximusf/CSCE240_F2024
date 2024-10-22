@@ -5,7 +5,12 @@
 
 #include "heightrange.h"
 
+// TODO: Implement the HeightRange class here
 HeightRange::HeightRange() {
-    // code
-}
+    
+    public:
+        
 
+
+
+}
