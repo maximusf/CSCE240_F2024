@@ -1,0 +1,147 @@
+NOTES FOR EXAM TUESDAY
+
+== Arrays ==
+* Definition
+* Size
+    - Constant variable, Google Style
+* Type of values it can hold?
+* Name is _the address_
+* Initialize at the time of declaration only with list {}
+
+* Access individual elements - [] operator
+* Overstepping bounds
+* Name of the array gives ___ 
+    int x[5] = {3, 7, 2};
+    cout << x[4]; // what is the output? 0
+    cout << x; // what is the output? address of the first element
+* An array is like a constant pointer
+* Multiple dimensions/subscripts (all sizes fixed)
+
+* Character arrays
+* Null character - '\0'
+* Null pointer - nullptr
+* Null string - ""
+* Initialization to c-string (in double quotes)
+    char carray[] = "hi there"; // what is the size of carray? 9, 8 displaying characters, and a null character
+* Overloaded << operator
+
+* Array function parameters
+    - Empty [] for first dimension
+    - [ constant ] for additional dimensions
+* Array arguments (name of the array)
+    - Space savings, need to think about constant parameters
+* Search -- linear, binary
+* Sort
+
+For this test, you might need to write a short function
+
+
+-- Example: --
+Write a function that takes a character array and a character as its two arguments and 
+returns the number of times the character appears in the character array
+
+
+-- you should be able to write a short function like this --
+cout << HowMany("hello there", 'e') << endl; // this should output 3
+
+// this is the function
+int HowMany( const char carray[], char c ) {
+    int count = 0;
+    int i = 0;
+    while (carray[i] != '\0') {
+        if (carray[i] == c) {
+            count++;
+        }
+        ++i;
+    }
+    return count;
+}
+
+-- you will not be asked to write a quick sort function, just something relatively basic
+
+== Pointers ==
+* Variables that hold memory addresses
+* How to declare? (*)
+* What kind of things can they point to? // anything that has an address
+* Relationship to arrays?
+
+* & - reference operator (unary operator)
+* * - dereference operator (takes in an address as its operand then returns the value at that address)
+
+* What can change using variables declared each of the following ways?
+    type * variable
+    const type * variable // pointer is constant, value is not
+    type * const variable // variable is a constant pointer to values, the values are not constant
+    const type * const variable // pointer is constant, value is constant
+    // Read them from right to left
+
+-- Example: --
+int x[] = {3, 5, 7, 12};
+const int * ptr = x;
+cout << *ptr; // what will this output? 3
+
+++ptr; // is this syntactically correct? yes
+++(*ptr); // is this syntactically correct? no, taking the value at the address and incrementing it (but the value is constant)
+
+Pointers allows us to dynamically allocate memory
+But, we have to clean up after ourselves
+If we don't, we will have a memory leak
+
+== Object-Oriented Programming ==
+* Structures
+* Classes
+    - What's the difference between structures and classes?
+    Everything in a struct is public by default and everything in a class is private by default
+* Objects
+    - public
+    - protected
+    - private
+    What's the difference between protected and private? (probably not on the test)
+    When you create children classes, they can access protected members but not private members
+* friend
+    How does something become a friend of a class? 
+    You have to declare it as a friend in the class
+    Can access anything (public, protected, private)
+* Dot operator
+* Arrow operator
+    - ptr -> member ...
+What's the diffference between a static member and a non-static member?
+    Static members belong to the entire class
+    Non-static members belong one to each object
+* "this" pointer
+* static members
+    - Data members initialized with class
+    - Member functions have no this pointer, can be called without an object (class::staticMember)
+
+* Constructor
+    - Default Constructor
+    - Copy Constructor (argument is another object that you want to copy)
+        when is it important to write one of these?
+    - explicit 
+        when and why is it important to use this
+    - Member initializer list (initialize data members directly in the constructor)
+
+* Destructor
+    - Overload?
+    - When is it called?
+    - When do we need to write one?
+    - No parameters, cannot overload it
+
+* Constant member functions
+    - How do we make a member function constant?
+    - Why would we make a member function constant?
+* Accessor functions (get functions)
+* Mutator functions (set functions)
+* Overloading operators
+    - How do we determine if an operator can be a member function in our class?
+
+* Composition
+* class diagrams
+    - Boxes = Classes
+        - Name of class in top section
+        - Data amembers in second sectionMember functions in third section
+        - Member functions in third section
+        - + for public, # for protected,
+        - - for private
+
+You should be able to read the class diagram, read the variables, and understand the relationships between classes
